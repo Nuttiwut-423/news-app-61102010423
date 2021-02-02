@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My News App</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+        <style>
+
+            
+    html,.container {
+        font-size: 1vw;
+    }
+@media screen and (max-width : 1440px)
+    {
+    html,.container {
+        font-size: 1.6vw;
+    }
+
+}
+@media screen and (max-width : 768px)
+    {
+    html,.container {
+        font-size: 3.2vw;
+    }
+
+}
+
+ h5{
+     text-align: left;
+ }
+
+ .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  border-radius: 5%;
+  border: 3px solid #B2BABB;
+}
+
+.vertical-center {
+        height:100%;
+        width:100%;
+        text-align: center;
+        }
+
+        body {
+        background-color:#ffacac;
+        }
+        
+
+        #sticky-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 5%;
+        line-height: 10%; /* Vertically center the text there */
+        background-color: #f5f5f5;
+        }
+        </style>
+</head>
+    
+
+<body>
+        {% include './includes/_navbar.html' %}
+        
+    <div class="vertical-center">
+        <div style="color:#f5f5f5" class="container">
+            <br><br><br>
+            {% block body %}{% endblock %}
+            <br><br><br>
+        </div>
+    </div>
+
+</body>
+
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; Nuttiwut Ektarawong</small>
+    </div>
+</footer>
+</html>

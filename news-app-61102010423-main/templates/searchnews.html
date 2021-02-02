@@ -1,0 +1,45 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<h1> <b>SEARCH NEW</b></h1><br>
+
+<form>
+  <input class="form-control  form-control-lg" name="news" type="text" placeholder="Search news here...">
+
+    <br>
+    <button type="submit" value="Submit" class="btn btn-outline-light btn-lg"> <i class="fa fa-search" aria-hidden="true"></i> <b> News Search</b></button>
+    
+</form>
+
+
+{% if news == None %}
+
+<br>
+<h1 style="color: red;"><b>404 news not found</b></h1>
+<br>
+{% else %}
+<br>
+<h3><i class="fas fa-list"></i> &nbsp; <b> {{news.countNews}} news found.</b></h3>
+<br>
+
+
+{%for i in range(news.countNews) %}
+
+
+<div class="jumbotron mt-3 bg-dark shadow-lg">
+    <div class="container">
+        <div style="text-align: left;">
+        <h5><i class="far fa-newspaper"></i> News #{{i+1}}: <b><a href="{{news.urlList[i]}}" target="_blank">{{news.titleList[i]}}</a> </b></h5>
+        <hr style="border-top: 1px solid whitesmoke;">
+        <p>{{news.descriptionList[i]}} <a href="{{news.urlList[i]}}" target="_blank">Read more</a></p>
+        </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+
+{% endif %}
+
+
+{% endblock %}

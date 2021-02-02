@@ -1,0 +1,61 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+
+
+<h1> <b style="color: #c2d57f;">CURRENT WEATHER</b></h1><br>
+
+<form>
+  <input class="form-control  form-control-lg" name="city" type="text" placeholder="type location here...">
+
+    <br>
+    <button type="submit" value="Submit" class="btn btn-outline-light btn-lg"> <i class="fa fa-search" aria-hidden="true"></i> <b> Weather Search</b></button>
+    
+</form>
+{% if weather.description == "city not found" %}
+
+<br>
+<h1 style="color: red;"><b>404 city not found</b></h1>
+
+{% else %}
+
+<img src="{{weather.url_icon}}" alt="Weather icon">
+<h3><i class="fas fa-map-marker-alt"></i> City: <b style="color:red;">{{weather.city}}, {{weather.country}}</b> &nbsp; <i class="fas fa-cloud-sun-rain"></i> Description: <b style="color: red;">{{weather.description}}</b></h3>
+<h2><i class="fas fa-temperature-high"></i> Temperature: <b style="color: red;">{{weather.temperature}} &#8451</b></h2>
+<h3><i class="fab fa-cloudscale"></i> Pressure: <b style="color:red;">{{weather.pressure}} Pascal</b> &nbsp; <i class="fas fa-hand-holding-water"></i> Humidity: <b style="color: red;">{{weather.humidity}}%</b> &nbsp; <i class="fas fa-wind"></i> Wind: <b style="color:red;">{{weather.wind}} KM/H</b></h3>
+
+
+
+{% endif %}
+<br><hr style="border-top: 3px solid rgb(245, 245, 245);">
+<h1> <b style="color: #7FB3D5;">COVID-19 NEWS</b></h1><br>
+
+{% if news == None %}
+
+<br>
+<h1 style="color: red;"><b>404 news not found</b></h1>
+<br>
+{% else %}
+
+{%for i in range(5) %}
+
+
+<div class="jumbotron mt-3 bg-dark shadow-lg">
+    <div class="container">
+        <div style="text-align: left;">
+        <h5><i class="far fa-newspaper"></i> News #{{i+1}}: <b><a href="{{news.urlList[i]}}" target="_blank">{{news.titleList[i]}}</a></b></h5> <br>
+        <img src="{{news.urlToImageList[i]}}" alt="NewsImage" class="center"> <br>
+        <hr style="border-top: 1px solid whitesmoke;">
+        <p>{{news.descriptionList[i]}} <a href="{{news.urlList[i]}}" target="_blank">Read more</a></p>
+        </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+
+{% endif %}
+
+{% endblock %}
+
+
